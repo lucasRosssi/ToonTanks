@@ -16,19 +16,19 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float MovementSpeed = 400.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
   float TurnSpeed = 180.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
   float ProjectileSpeed = 1000.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float FireRate = 1.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float BaseDamage = 30.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float Health = 100.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float Shield = 50.f;
 
 protected:
