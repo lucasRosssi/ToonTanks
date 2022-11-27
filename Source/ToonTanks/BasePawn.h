@@ -16,36 +16,35 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-  UPROPERTY(EditAnywhere, BlueprintReadWrite)
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
   float MovementSpeed = 400.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite)
+  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "PawnStats")
   float TurnSpeed = 180.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite)
+  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "PawnStats")
   float ProjectileSpeed = 1000.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite)
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
   float FireRate = 1.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite)
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
   float BaseDamage = 30.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite)
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
   float Health = 100.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite)
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PawnStats")
   float Shield = 50.f;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:
-  UPROPERTY()
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
   class UCapsuleComponent* CapsuleComp;
 
-  UPROPERTY()
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
   UStaticMeshComponent* BaseMesh;
 
-  UPROPERTY()
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
   UStaticMeshComponent* TurretMesh;
 
-  UPROPERTY()
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
   USceneComponent* ProjectileSpawnPoint;
 
 public:	
