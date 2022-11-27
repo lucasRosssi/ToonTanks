@@ -19,7 +19,7 @@ public:
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float MovementSpeed = 400.f;
   UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
-  float TurnSpeed = 180.f;
+  float TurnSpeed = 75.f;
   UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
   float ProjectileSpeed = 1000.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
