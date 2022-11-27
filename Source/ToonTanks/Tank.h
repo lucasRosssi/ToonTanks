@@ -27,5 +27,6 @@ private:
   class UCameraComponent* Camera;
 
   void Move(float Value);
+  void Turn(float Value);
 
 };
