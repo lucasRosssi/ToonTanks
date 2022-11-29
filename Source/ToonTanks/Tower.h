@@ -23,4 +23,9 @@ protected:
 private:
   class APawn* Tank;
 
+  bool InActionRange();
+
+  FTimerHandle FireRateTimerHandle;
+  void CheckFireCondition();
+
 };
