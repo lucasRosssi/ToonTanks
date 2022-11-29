@@ -17,13 +17,15 @@ public:
 	ABasePawn();
 
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
-  float MovementSpeed = 300.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
-  float TurnSpeed = 60.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
+  float MovementSpeed = 400.f;
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
+  float TurnSpeed = 70.f;
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float TurretRotateSpeed = 90.f;
-  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "SpecialStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float ProjectileSpeed = 1000.f;
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
+  float FireRange = 500.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float FireRate = 1.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
