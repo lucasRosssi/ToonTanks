@@ -3,6 +3,7 @@
 
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -34,4 +35,17 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
     GetWorld()->GetDeltaSeconds(),
     TurretRotateSpeed
   ));
+}
+
+void ABasePawn::Fire()
+{
+  DrawDebugSphere(
+    GetWorld(),
+    ProjectileSpawnPoint->GetComponentLocation(),
+    20,
+    10,
+    FColor::Magenta,
+    false,
+    3.f
+  );
 }
