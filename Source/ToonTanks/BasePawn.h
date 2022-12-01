@@ -16,6 +16,8 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
+  void HandleDestruction();
+
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float MovementSpeed = 400.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
@@ -30,10 +32,6 @@ public:
   float FireRate = 1.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float BaseDamage = 30.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
-  float Health = 100.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
-  float Shield = 50.f;
 
 protected:
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
