@@ -21,9 +21,18 @@ protected:
 
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Component")
   UStaticMeshComponent* ProjectileMesh;
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
+  class UProjectileMovementComponent* ProjectileMovementComponent;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+  UFUNCTION()
+  void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+  UPROPERTY(EditAnywhere)
+  float Damage = 50.f;
 
 };
