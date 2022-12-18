@@ -32,6 +32,10 @@ public:
   float FireRate = 1.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float BaseDamage = 30.f;
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SpecialStats")
+  int32 Level = 1;
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SpecialStats")
+  float Experience = 0;
 
 protected:
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -45,6 +49,11 @@ protected:
 
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
   USceneComponent* ProjectileSpawnPoint;
+  UPROPERTY(EditAnywhere, Category = "Destruction")
+  class UParticleSystem* DestructionParticles;
+
+  UPROPERTY(EditAnywhere, Category = "Destruction")
+  class USoundBase* DestructionSound;
 
   void RotateTurret(FVector LookAtTarget);
   void Fire();
