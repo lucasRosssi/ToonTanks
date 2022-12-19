@@ -17,6 +17,7 @@ public:
 	ABasePawn();
 
   void HandleDestruction();
+  bool LevelUp(float Exp);
 
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float MovementSpeed = 400.f;
@@ -32,10 +33,12 @@ public:
   float FireRate = 1.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float BaseDamage = 30.f;
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
+  float Experience = 0;
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SpecialStats")
   int32 Level = 1;
-  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SpecialStats")
-  float Experience = 0;
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
+  float ExperienceOnDeath;
 
 protected:
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -61,4 +64,7 @@ protected:
 private:
   UPROPERTY(EditDefaultsOnly, Category = "Combat")
   TSubclassOf<class AProjectile> ProjectileClass;
+
+  TArray<float> RequiredExperience = { 0, 50, 125, 225, 350, 500, 700, 1000, 1425, 2000 };
+ 
 };

@@ -38,6 +38,7 @@ void ABasePawn::HandleDestruction()
   {
     UGameplayStatics::PlaySoundAtLocation(this, DestructionSound, GetActorLocation());
   }
+
 }
 
 void ABasePawn::RotateTurret(FVector LookAtTarget)
@@ -61,4 +62,16 @@ void ABasePawn::Fire()
     ProjectileSpawnPoint->GetComponentRotation()
   );
   Projectile->SetOwner(this);
+}
+
+bool ABasePawn::LevelUp(float Exp)
+{
+  Experience += Exp;
+
+  if (Experience >= RequiredExperience[Level])
+  {
+    Level++;
+    return true;
+  }
+  return false;
 }
