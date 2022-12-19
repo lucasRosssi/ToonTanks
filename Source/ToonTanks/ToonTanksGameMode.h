@@ -24,6 +24,8 @@ protected:
   void StartGame();
   UFUNCTION(BlueprintImplementableEvent)
   void GameOver(bool bWonGame);
+  UFUNCTION(BlueprintImplementableEvent)
+  void OnLevelUp();
 
 private:
   class ATank* Tank;

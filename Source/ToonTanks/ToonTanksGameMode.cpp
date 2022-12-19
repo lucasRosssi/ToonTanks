@@ -32,6 +32,13 @@ void AToonTanksGameMode::ActorDied(AActor* DeadActor)
       GameOver(true);
     }
   }
+  if (ABasePawn* DestroyedPawn = Cast<ABasePawn>(DeadActor))
+  {
+    if (Tank->LevelUp(DestroyedPawn->ExperienceOnDeath))
+    {
+      OnLevelUp();
+    }
+  }
 }
 
 void AToonTanksGameMode::BeginPlay()
