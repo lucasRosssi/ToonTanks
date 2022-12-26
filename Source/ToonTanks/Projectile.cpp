@@ -5,6 +5,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "BasePawn.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -27,20 +28,30 @@ AProjectile::AProjectile()
 void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+
   StartingPoint = GetActorLocation();
 	
   ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
 
+
   if (FireSound)
-    {
-      UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-    }
+  {
+    UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+  }
 }
 
 // Called every frame
 void AProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+  ABasePawn* Shooter = Cast<ABasePawn>(GetOwner());
+  if (Shooter && !bStatChanged)
+  {
+    Damage = Shooter->BaseDamage;
+    Range = Shooter->FireRange;
+    bStatChanged = true;
+  }
 
   float DistanceTravelled = FVector::Distance(StartingPoint, GetActorLocation());
   if (DistanceTravelled >= Range)

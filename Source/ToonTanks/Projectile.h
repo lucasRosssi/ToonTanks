@@ -48,12 +48,13 @@ private:
   UPROPERTY(EditAnywhere, Category = "Combat")
   float Damage = 50.f;
   UPROPERTY(EditAnywhere, Category = "Combat")
-  float Range = 500.f;
+  float Range = 5000.f;
+
+  bool bStatChanged = false;
 
   FVector StartingPoint;
 
   UPROPERTY(EditAnywhere, Category = "Combat")
   UParticleSystem* HitParticles;
-
 
 };
