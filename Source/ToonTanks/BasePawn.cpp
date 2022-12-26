@@ -95,7 +95,7 @@ void ABasePawn::IncreaseDamage()
 {
   if (!bIsLeveling) return;
 
-  BaseDamage *= 1.2;
+  BaseDamage *= 1.3;
   bIsLeveling = false;
 }
 
@@ -103,7 +103,7 @@ void ABasePawn::IncreaseFireRate()
 {
   if (!bIsLeveling) return;
 
-  FireRate *= 1.15;
+  FireRate *= 1.25;
   bIsLeveling = false;
 }
 
@@ -111,7 +111,7 @@ void ABasePawn::IncreaseFireRange()
 {
   if (!bIsLeveling) return;
 
-  FireRange += 100;
+  FireRange += 125;
   bIsLeveling = false;
 }
 
@@ -119,7 +119,7 @@ void ABasePawn::IncreaseProjectileSpeed()
 {
   if (!bIsLeveling) return;
 
-  ProjectileSpeed += 200;
+  ProjectileSpeed += 250;
   bIsLeveling = false;
 }
 
@@ -127,7 +127,7 @@ void ABasePawn::IncreaseMovementSpeed()
 {
   if (!bIsLeveling) return;
 
-  MovementSpeed += 50;
+  MovementSpeed += 100;
   bIsLeveling = false;
 }
 
@@ -135,7 +135,7 @@ void ABasePawn::IncreaseTurnSpeed()
 {
   if (!bIsLeveling) return;
 
-  TurnSpeed += 10;
+  TurnSpeed += 25;
   bIsLeveling = false;
 }
 
@@ -143,7 +143,7 @@ void ABasePawn::IncreaseTurretTurnSpeed()
 {
   if (!bIsLeveling) return;
 
-  TurretRotateSpeed += 15;
+  TurretRotateSpeed += 20;
   bIsLeveling = false;
   
 }
