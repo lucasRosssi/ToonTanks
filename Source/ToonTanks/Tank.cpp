@@ -23,6 +23,14 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
   PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 
   PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
+  PlayerInputComponent->BindAction(TEXT("IncreaseHealth"), IE_Pressed, this, &ABasePawn::IncreaseHealth);
+  PlayerInputComponent->BindAction(TEXT("IncreaseDamage"), IE_Pressed, this, &ABasePawn::IncreaseDamage);
+  PlayerInputComponent->BindAction(TEXT("IncreaseFireRate"), IE_Pressed, this, &ABasePawn::IncreaseFireRate);
+  PlayerInputComponent->BindAction(TEXT("IncreaseFireRange"), IE_Pressed, this, &ABasePawn::IncreaseFireRange);
+  PlayerInputComponent->BindAction(TEXT("IncreaseProjectileSpeed"), IE_Pressed, this, &ABasePawn::IncreaseProjectileSpeed);
+  PlayerInputComponent->BindAction(TEXT("IncreaseMovementSpeed"), IE_Pressed, this, &ABasePawn::IncreaseMovementSpeed);
+  PlayerInputComponent->BindAction(TEXT("IncreaseTurnSpeed"), IE_Pressed, this, &ABasePawn::IncreaseTurnSpeed);
+  PlayerInputComponent->BindAction(TEXT("IncreaseTurretTurnSpeed"), IE_Pressed, this, &ABasePawn::IncreaseTurretTurnSpeed);
 }
 
 void ATank::Tick(float DeltaTime)
@@ -48,6 +56,7 @@ void ATank::HandleDestruction()
   SetActorHiddenInGame(true);
   SetActorTickEnabled(false);
   bTankHidden = true;
+  SetActorEnableCollision(false);
 }
 
 void ATank::BeginPlay()
