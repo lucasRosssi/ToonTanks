@@ -9,6 +9,7 @@
 #include "GameFramework/Pawn.h"
 #include "Particles/ParticleSystem.h"
 
+
 // Sets default values
 ABasePawn::ABasePawn()
 {
@@ -71,7 +72,79 @@ bool ABasePawn::LevelUp(float Exp)
   if (Experience >= RequiredExperience[Level])
   {
     Level++;
+
+    if (LevelUpEffect)
+    {
+      UGameplayStatics::SpawnEmitterAtLocation(this, LevelUpEffect, GetActorLocation(), GetActorRotation());
+    }
+
+    bIsLeveling = true;
     return true;
   }
   return false;
 }
+
+void ABasePawn::IncreaseHealth()
+{
+  if (!bIsLeveling) return;
+
+
+}
+
+void ABasePawn::IncreaseDamage()
+{
+  if (!bIsLeveling) return;
+
+  BaseDamage *= 1.2;
+  bIsLeveling = false;
+}
+
+void ABasePawn::IncreaseFireRate()
+{
+  if (!bIsLeveling) return;
+
+  FireRate *= 1.15;
+  bIsLeveling = false;
+}
+
+void ABasePawn::IncreaseFireRange()
+{
+  if (!bIsLeveling) return;
+
+  FireRange += 100;
+  bIsLeveling = false;
+}
+
+void ABasePawn::IncreaseProjectileSpeed()
+{
+  if (!bIsLeveling) return;
+
+  ProjectileSpeed += 200;
+  bIsLeveling = false;
+}
+
+void ABasePawn::IncreaseMovementSpeed()
+{
+  if (!bIsLeveling) return;
+
+  MovementSpeed += 50;
+  bIsLeveling = false;
+}
+
+void ABasePawn::IncreaseTurnSpeed()
+{
+  if (!bIsLeveling) return;
+
+  TurnSpeed += 10;
+  bIsLeveling = false;
+}
+
+void ABasePawn::IncreaseTurretTurnSpeed()
+{
+  if (!bIsLeveling) return;
+
+  TurretRotateSpeed += 15;
+  bIsLeveling = false;
+  
+}
+

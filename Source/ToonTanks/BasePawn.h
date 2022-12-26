@@ -19,6 +19,16 @@ public:
   void HandleDestruction();
   bool LevelUp(float Exp);
 
+  bool bIsLeveling = false;
+  void IncreaseHealth();
+  void IncreaseDamage();
+  void IncreaseFireRate();
+  void IncreaseFireRange();
+  void IncreaseProjectileSpeed();
+  void IncreaseMovementSpeed();
+  void IncreaseTurnSpeed();
+  void IncreaseTurretTurnSpeed();
+
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float MovementSpeed = 400.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
@@ -33,11 +43,11 @@ public:
   float FireRate = 1.f;
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
   float BaseDamage = 30.f;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
   float Experience = 0;
-  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "SpecialStats")
+  UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Level")
   int32 Level = 1;
-  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SpecialStats")
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
   float ExperienceOnDeath;
 
 protected:
@@ -58,12 +68,16 @@ protected:
   UPROPERTY(EditAnywhere, Category = "Destruction")
   class USoundBase* DestructionSound;
 
+  UPROPERTY(EditDefaultsOnly, Category = "Level")
+  UParticleSystem* LevelUpEffect;
+
   void RotateTurret(FVector LookAtTarget);
   void Fire();
 
 private:
   UPROPERTY(EditDefaultsOnly, Category = "Combat")
   TSubclassOf<class AProjectile> ProjectileClass;
+
 
   TArray<float> RequiredExperience = { 0, 50, 125, 225, 350, 500, 700, 1000, 1425, 2000 };
  
