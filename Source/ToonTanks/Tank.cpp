@@ -23,7 +23,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
   PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 
   PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
-  PlayerInputComponent->BindAction(TEXT("IncreaseHealth"), IE_Pressed, this, &ABasePawn::IncreaseHealth);
+  // PlayerInputComponent->BindAction(TEXT("IncreaseHealth"), IE_Pressed, this, &ABasePawn::IncreaseHealth);
   PlayerInputComponent->BindAction(TEXT("IncreaseDamage"), IE_Pressed, this, &ABasePawn::IncreaseDamage);
   PlayerInputComponent->BindAction(TEXT("IncreaseFireRate"), IE_Pressed, this, &ABasePawn::IncreaseFireRate);
   PlayerInputComponent->BindAction(TEXT("IncreaseFireRange"), IE_Pressed, this, &ABasePawn::IncreaseFireRange);
